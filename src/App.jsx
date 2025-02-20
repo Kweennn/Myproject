@@ -1,5 +1,5 @@
 import "./App.css";
-import Hero from "./components/Hero";
+import Hero from "./components/hero";
 import AboutMe from "./components/AboutMe";
 import { Routes, Route } from "react-router-dom";
 
