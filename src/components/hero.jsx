@@ -1,3 +1,4 @@
+import React from 'react';
 import me from '../assets/me.png'
 import '../App.css'
 
@@ -8,7 +9,6 @@ function Hero() {
           <div className="hero-logo">Queen</div>
           <nav>
             <ul className="hero-nav-links">
-              <li>Home</li>
               <li>About Me</li>
               <li>Projects</li>
               <li>CV</li>
