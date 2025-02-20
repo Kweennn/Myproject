@@ -1,19 +1,15 @@
-import {Route, Routes} from 'react-router-dom';
-import './App.css';
-import Hero from './components/hero';
-import Home from './pages/Home';
+import "./App.css";
+import Hero from "./components/Hero";
+import AboutMe from "./components/AboutMe";
+import { Routes, Route } from "react-router-dom";
 
 function App() {
-
   return (
-    <div>
-      <Routes>
-        <Route path="/" element={<Hero/>} />
-        <Route path="/home" element={<Home/>} />
-        <Route path="/about-me" element={<AboutMe/>} />
-      </Routes>
-    </div>
-  )
+    <Routes>
+      <Route path="/" element={<Hero />} />
+      <Route path="/about" element={<AboutMe />} />
+    </Routes>
+  );
 }
 
-export default App
+export default App;
