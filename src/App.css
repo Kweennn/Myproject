@@ -98,18 +98,19 @@ body {
 .hero-text h1 {
   font-size: 3rem;
   font-weight: 700;
-  margin-bottom: 20px;
+  margin-bottom:-50px;
   letter-spacing: 1px;
-  line-height: 1.2;
+  line-height: 1.1; 
   margin-top: 50px;
 }
 
 .hero-text h2 {
   font-size: 2rem;
   font-weight: 600;
-  margin-bottom: 20px;
-  line-height: 1.5;
+  margin-bottom: 5px; 
+  line-height: 1.2; 
 }
+
 
 .hero-text p {
   font-size: 1.2rem;
@@ -283,4 +284,43 @@ body {
   .hero-image {
     max-width: 80%;
   }
+}
+.about-container {
+  background: linear-gradient(to right, #4A90E2, #00A896);
+  color: white;
+  text-align: center;
+  padding: 40px;
+  border-radius: 10px;
+}
+
+.about-header {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.profile-section {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.profile-image {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 3px solid white;
+}
+
+.about-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-top: 10px; 
+}
+.hero-text h2 {
+  margin-top: 100px; 
+}
+.hero-text h3 {
+  margin-top: -15px; 
 }
