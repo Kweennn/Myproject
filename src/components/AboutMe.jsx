@@ -1,19 +1,21 @@
 import React from 'react';
+import { useNavigate } from "react-router-dom";
+import { FaDownload } from 'react-icons/fa';
 import me from '../assets/me.png'; 
 import '../App.css';
-import { useNavigate } from "react-router-dom";
 
 function AboutMe() {
     const navigate = useNavigate();
 
     return (
-        <div className="hero-container"> 
-            <header className="hero-header">
-                <div className="hero-logo">Queen</div>
+        <div className="about-page">
+            {/* Navbar */}
+            <header className="about-header">
+                <div className="about-logo">Queen</div>
                 <nav>
-                    <ul className="hero-nav-links">
+                    <ul className="about-nav-links">
                         <li onClick={() => navigate("/")}>Home</li>
-                        <li>About Me</li>
+                        <li onClick={() => navigate("/about")}>About Me</li>
                         <li>Projects</li>
                         <li>CV</li>
                         <li>Contact</li>
@@ -21,20 +23,47 @@ function AboutMe() {
                 </nav>
             </header>
 
-            <div className="hero-content">
-                <div className="hero-text">
-                    <h2>About Me</h2>
-                    <p>
-                        Hello! I'm <strong>Queenie Jane Canoy</strong>, a passionate UI/UX Designer dedicated to creating seamless, user-friendly digital experiences.  
-                        With a keen eye for detail and a love for innovative design, I strive to craft interfaces that are both functional and visually appealing.
-                    </p>
-
-                    <h3>📚 Education</h3>
-                    <p>Bachelor’s Degree in Information Technology - Western Mindanao State University</p>
+            {/* Main Content */}
+            <div className="about-container">
+                {/* Left Side: Image */}
+                <div className="about-image">
+                    <img src={me} alt="Queenie Jane Canoy" />
                 </div>
 
-                <div className="hero-image-container">
-                    <img src={me} alt="Queenie Jane Canoy" className="hero-image" />
+                {/* Right Side: Content */}
+                <div className="about-content">
+                    <h1 className="about-title"><span className="highlight">Queenie Jane Canoy</span></h1>
+                    <p className="about-subtitle">UI/UX Designer & Frontend Developer</p>
+                    <p className="about-description">
+                    Passionate about crafting intuitive and beautiful digital experiences, I specialize in creating user-friendly designs and sleek frontend interfaces. As a student, I am always exploring new design trends and technologies to enhance my skills. I focus on blending creativity with functionality to solve problems and deliver seamless, accessible user experiences. Eager to learn and grow, I’m particularly interested in front-end development with frameworks like React.
+                    </p>
+
+                    {/* Skills Section */}
+                    <div className="about-section">
+                        <h3>Skills & Tools</h3>
+                        <ul className="skills-list">
+                            <li>UI/UX Design</li>
+                            <li>Adobe</li>
+                            <li>HTML, CSS</li>
+                            <li>Bootstrap</li>
+                            <li>Design Thinking</li>
+                        </ul>
+                    </div>
+
+                    {/* Experience & Education */}
+                    <div className="about-section">
+                        <h3>Certification</h3>
+                        <div className="about-cards">
+                            <div className="about-card">
+                                <h4>Python for beginners</h4>
+                                <p>Code Red Online Course</p>
+                            </div>
+                            <div className="about-card">
+                                <h4>Build your Own Netapp Storage Lab </h4>
+                                <p>Code Red Online Course</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

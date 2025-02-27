@@ -23,7 +23,16 @@ function Hero() {
   
         <div className="hero-content">
         <div className="hero-text">
-          <h1>Queenie Jane Canoy</h1>
+        <h1 style={{
+  fontSize: "60px", 
+  fontWeight: "bold", 
+  textAlign: "center", 
+  color: "#ffffff", 
+  marginTop: "20px",
+  textShadow: "2px 2px 10px rgba(0, 0, 0, 0.3)"
+}}>
+  Queenie Jane Canoy
+</h1>
           <h2>UI / UX Designer</h2><br/>
           <button className="hero-cv-button">View Work</button>
         </div>
