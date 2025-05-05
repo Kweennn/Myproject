@@ -35,23 +35,29 @@ h1 {
   line-height: 1.1;
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
+.hero-cv-button {
+  background-color: #325272;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 30px;  /* Adjust padding so the text fits */
+  font-size: 16px;      /* Ensure appropriate font size */
   font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
+  text-transform: uppercase;
   cursor: pointer;
-  transition: border-color 0.25s;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  white-space: nowrap;  /* Prevent text from wrapping */
 }
-button:hover {
-  border-color: #646cff;
+
+.hero-cv-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
 }
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+
+.hero-cv-button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(50, 82, 114, 0.5);
 }
 
 @media (prefers-color-scheme: light) {

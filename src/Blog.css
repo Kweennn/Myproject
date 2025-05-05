@@ -12,7 +12,7 @@
 
 
 .blog-page {
-  background-color: #f0f0f0;  
+  background-color: #eaeaea;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -20,19 +20,76 @@
   justify-content: flex-start;
   align-items: center;
   overflow: hidden;
-  padding: 80px 20px 50px;
 
 }
+.blog-hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
 
-  .blog-header {
-    text-align: center;
-    margin-top: -200px;
+.blog-hero-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+}
+
+.blog-header {
+  position: relative;
+  z-index: 2;
+  color: #243c4c;
+  text-align: center;
+  padding: 50px 20px;
+}
+.blog-header h1 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
+.blog-title {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+  color: #243c4c;
+}
+
+.blog-description {
+  font-size: 1.1rem;
+  color: #243c4c;
+}
+
+.scroll-indicator {
+  margin-top: 40px;
+  cursor: pointer;
+  font-weight: 500;
+  color: #23323b;
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.scroll-arrow {
+  font-size: 2rem;
+  animation: bounce 1.5s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
   }
+
+  50% {
+    transform: translateY(6px);
+  }
+}
+
   
   .blog-title {
     font-size: 17rem;
     font-weight: bold;
-    background: linear-gradient(90deg, #17ccec, #00aeff, #435fff, #ac21fd);
+    background: #194670 ;
     background-size: 100%; 
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent; 
@@ -41,9 +98,7 @@
     text-shadow: 0px 4px 6px rgba(0, 0, 0, 0.4);
     margin-bottom: 10px;
     transition: transform 0.5s ease, text-shadow 0.5s ease; 
-    text-shadow: 0px 5px 8px rgba(0, 0, 0, 0.5), 
-                 0px 0px 10px rgba(0, 255, 255, 0.3), 
-                 0px 0px 20px rgba(0, 255, 255, 0.2); 
+
   }
   
   .blog-title:hover {
@@ -66,7 +121,7 @@
   
   .blog-description {
     font-size: 1.5rem;
-    color: #ffffff;
+    color: #eaeaea;
     animation: slideIn 1.5s ease-out;  
     margin-bottom: 15px;
     margin-top: -20px;
@@ -90,7 +145,7 @@
     border-radius: 15px; 
     overflow: hidden;
     box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2); 
-    background: linear-gradient(135deg, #0f172a 30%, #1e293b 100%); 
+    background: linear-gradient(135deg, #243c4c 30%, #222 100%); 
     transition: transform 0.5s ease, box-shadow 0.5s ease, border 0.5s ease;
     cursor: pointer;
     aspect-ratio: 1;
@@ -590,7 +645,7 @@
   .image-title {
     font-size: 16px;
     font-weight: 500;
-    margin-bottom: 10px;
+   margin-bottom: 25px;
     color: #333;
     text-align: center;
   }

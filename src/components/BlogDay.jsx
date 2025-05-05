@@ -567,17 +567,7 @@ blogBottom4Ref.current?.scrollIntoView({ behavior: "smooth" });
 return ( <div className="blog-page2"> 
 
 <header className="about-header"> 
-  <div className="about-logo">QJC</div> 
-  <button className="hamburger-menu" onClick={toggleMenu} aria-label="Toggle menu">☰</button>
-  <nav className={`nav-menu ${menuOpen ? "menu-active" : ""}`}> 
-    <ul className="about-nav-links">
-      <li onClick={() => { navigate("/"); toggleMenu(); }}>Home</li>
-      <li onClick={() => { navigate("/about"); toggleMenu(); }}>About</li>
-      <li onClick={() => { navigate("/experience"); toggleMenu(); }}>Projects</li>
-      <li onClick={() => { navigate("/blog"); toggleMenu(); }}>Blog</li>
-      <li onClick={() => { navigate("/contact"); toggleMenu(); }}>Contact</li> 
-    </ul> 
-  </nav> 
+<Navbar />
 </header>
 
   <div className="blog-top2"
@@ -606,8 +596,9 @@ return ( <div className="blog-page2">
   }}>
     <h1 className="blog-title">Our 7-Day of Adventure and Learning</h1>
     <p className="blog-description">
-      This exploration takes us beyond the classroom into dynamic environments where <br />
-      industry insights, technology, and professional expertise come to life.
+      This exploration takes us beyond the classroom into  dynamic<br />
+       environments where industry insights, technology, <br />
+       and professional expertise come to life.
     </p>
   </div>
 
@@ -697,7 +688,8 @@ return (
     color: "#ffffff",
     lineHeight: "1.9",
     padding: "0 15px",
-    marginBottom: "30px"
+    marginBottom: "30px",
+    marginLeft: "-45px",
   }}
 />
       </div>

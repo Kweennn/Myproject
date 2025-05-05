@@ -1,6 +1,45 @@
 import React, { useState } from 'react';
+import { FaLinkedin, FaGithub, FaFacebookF } from 'react-icons/fa';
 import Navbar from './Navbar';
 import '../App.css';
+import me from '../assets/me.png';
+
+function SocialLinks() {
+  return (
+    <div className="social-links">
+      <a
+        href="https://www.linkedin.com/in/queenie-jane-canoy-905bb1359/"
+        className="social-link"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <div className="social-icon">
+          <FaLinkedin />
+        </div>
+      </a>
+      <a
+        href="https://github.com/dashboard"
+        className="social-link"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <div className="social-icon">
+          <FaGithub />
+        </div>
+      </a>
+      <a
+        href="https://www.facebook.com/urkweenbijj"
+        className="social-link"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <div className="social-icon">
+          <FaFacebookF />
+        </div>
+      </a>
+    </div>
+  );
+}
 
 function Contact() {
   const [formData, setFormData] = useState({
@@ -22,11 +61,9 @@ function Contact() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Here you would typically send the form data to a server
     console.log('Form submitted:', formData);
     setFormSubmitted(true);
     
-    // Reset form after submission
     setFormData({
       name: '',
       email: '',
@@ -34,7 +71,6 @@ function Contact() {
       message: ''
     });
     
-    // Reset success message after 5 seconds
     setTimeout(() => {
       setFormSubmitted(false);
     }, 5000);
@@ -46,9 +82,7 @@ function Contact() {
       <div className="page-content">
         <div className="page-header">
           <h1 className="page-title">Contact Me</h1>
-          <p className="page-subtitle">
-            Have a question or want to work together? Feel free to reach out!
-          </p>
+          <p className="page-subtitle">Have a question or want to work together? Feel free to reach out!</p>
         </div>
 
         <div className="contact-container">
@@ -56,46 +90,31 @@ function Contact() {
             <div className="contact-method">
               <div className="contact-details">
                 <h3>Email</h3>
-                <p>hello@example.com</p>
+                <p>queeniecanoy0258@gmail.com</p>
               </div>
             </div>
-            
             <div className="contact-method">
               <div className="contact-details">
                 <h3>Phone</h3>
-                <p>+1 (123) 456-7890</p>
+                <p>0906652745</p>
               </div>
             </div>
-            
             <div className="contact-method">
               <div className="contact-details">
-                <h3>Location</h3>
-                <p>Manila, Philippines</p>
+                <h3>Address</h3>
+                <p>Tumaga, Zamboanga City, Philippines</p>
               </div>
             </div>
-            
-            <div className="social-links">
-              <a href="#" className="social-link">
-                <div className="social-icon">LinkedIn</div>
-              </a>
-              <a href="#" className="social-link">
-                <div className="social-icon">GitHub</div>
-              </a>
-              <a href="#" className="social-link">
-                <div className="social-icon">Twitter</div>
-              </a>
-            </div>
+            <SocialLinks />
           </div>
-          
+
           <div className="contact-form-container">
             <h2 className="form-title">Send Me a Message</h2>
-            
             {formSubmitted && (
               <div className="form-success-message">
                 Thank you for your message! I'll get back to you soon.
               </div>
             )}
-            
             <form className="contact-form" onSubmit={handleSubmit}>
               <div className="form-group">
                 <label htmlFor="name">Your Name</label>
@@ -122,18 +141,6 @@ function Contact() {
               </div>
               
               <div className="form-group">
-                <label htmlFor="subject">Subject</label>
-                <input
-                  type="text"
-                  id="subject"
-                  name="subject"
-                  value={formData.subject}
-                  onChange={handleChange}
-                  required
-                />
-              </div>
-              
-              <div className="form-group">
                 <label htmlFor="message">Your Message</label>
                 <textarea
                   id="message"
@@ -145,14 +152,10 @@ function Contact() {
                 ></textarea>
               </div>
               
-              <button type="submit" className="submit-button">
-                Send Message
-              </button>
+              <button type="submit" className="submit-button">Send Message</button>
             </form>
           </div>
         </div>
-        
-      
       </div>
     </div>
   );
