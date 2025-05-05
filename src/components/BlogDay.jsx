@@ -17,7 +17,7 @@ import F5 from '../assets/F5.jpg';
 import F6 from '../assets/F6.jpg';
 import F7 from '../assets/F7.jpg';
 import Manila from '../assets/Manila.jpg';
-import Bay from '../assets/Bay.jpg';
+import Bay from '../assets/bay.jpg';
 import moa1 from '../assets/moa1.jpg';
 import moa2 from '../assets/moa2.jpg';
 import moa3 from '../assets/moa3.jpg';
