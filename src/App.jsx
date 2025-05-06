@@ -1,6 +1,5 @@
-// App.jsx - Remove the BrowserRouter
 import React from 'react';
-import { Routes, Route } from 'react-router-dom'; // Remove BrowserRouter from import
+import { Routes, Route } from 'react-router-dom'; 
 import Hero from './components/hero';
 import AboutMe from './components/AboutMe';
 import Experience from './components/Experience';
@@ -8,6 +7,7 @@ import Projects from './components/Projects';
 import BlogPost from './components/Blog';
 import BlogDay from './components/BlogDay';
 import Contact from './components/Contact';
+import Certificate from './components/Certificate';
 import './App.css';
 
 function App() {
@@ -20,6 +20,7 @@ function App() {
       <Route path="/projects" element={<Projects />} />
       <Route path="/blog" element={<BlogPost />} />
       <Route path="/day/:dayId" element={<BlogDay />} />
+      <Route path="/certificate" element={<Certificate />} />
       <Route path="/contact" element={<Contact />} />
     </Routes>
   );
