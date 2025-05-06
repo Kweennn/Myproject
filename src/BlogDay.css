@@ -226,7 +226,7 @@ body {
   padding: 5rem 2rem;
   max-width: 1400px;
   margin: 0 auto;
-  background-color: #f8fafc;
+  background-color: #eaeaea
 }
 
 .blog-card {
@@ -289,7 +289,7 @@ body {
 }
 
 .pagination-dot.active {
-  background-color: white;
+  background-color: #eaeaea;
   transform: scale(1.2);
 }
 
@@ -303,7 +303,7 @@ body {
 .card-badge {
   display: inline-block;
   background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
-  color: white;
+  color: #eaeaea;
   padding: 0.5rem 1rem;
   border-radius: 50px;
   font-size: 0.9rem;
@@ -350,7 +350,7 @@ body {
   width: 100vw;
   max-width: 100%;
   background-color: var(--dark-bg-1);
-  color: white;
+  color: #eaeaea;
   padding: 3rem 0;
   text-align: center;
   box-sizing: border-box;
@@ -359,7 +359,7 @@ body {
 
 .blog-footer p {
   margin-bottom: 1.5rem;
-  color: var(--muted-text);
+  color: #eaeaea;
 }
 
 .footer-nav {
@@ -377,7 +377,6 @@ body {
   color: var(--primary-color);
 }
 
-/* BlogDay specific styles */
 .blog-page2 {
   display: flex;
   flex-direction: column;
@@ -386,7 +385,7 @@ body {
   max-width: 100%;
   overflow-x: hidden;
   background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-  padding-top: 80px; /* Space for fixed navbar */
+  padding-top: 80px; 
   margin: 0;
 }
 
@@ -422,7 +421,7 @@ body {
 .blog-bottom1 {
   background-color: var(--dark-bg-1);
   margin-top: -100px;
-  color: white;
+  color: #eaeaea;
   position: relative;
   z-index: 2;
 }
@@ -433,7 +432,7 @@ body {
   margin-bottom: 2rem;
   font-family: 'Montserrat', sans-serif;
   font-weight: 600;
-  color: #fff;
+  color: #eaeaea;
 }
 
 .gallery-grid {
@@ -487,19 +486,19 @@ body {
 /* Content sections styling */
 .blog-bottom2, .blog-bottom3, .blog-bottom4 {
   padding: 4rem 2rem;
-  color: white;
+  color: #eaeaea;
 }
 
 .blog-bottom2 {
-  background: linear-gradient(135deg, var(--dark-bg-3) 0%, var(--dark-bg-2) 100%);
+  background: #835e5e
 }
 
 .blog-bottom3 {
-  background: linear-gradient(135deg, var(--dark-bg-1) 0%, var(--dark-bg-2) 100%);
+  background: #212b41
 }
 
 .blog-bottom4 {
-  background: linear-gradient(135deg, var(--dark-bg-3) 0%, var(--dark-bg-1) 100%);
+  background: #415a52
 }
 
 .blog-day {

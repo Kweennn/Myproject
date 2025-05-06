@@ -89,7 +89,7 @@
   .blog-title {
     font-size: 17rem;
     font-weight: bold;
-    background: #194670 ;
+    background: #00497e ;
     background-size: 100%; 
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent; 
@@ -103,7 +103,7 @@
   
   .blog-title:hover {
     transform: scale(1.1); 
-    text-shadow: 0px 8px 12px rgba(0, 255, 255, 0.6), 
+    text-shadow: 0px 8px 12px rgba(118, 212, 212, 0.6), 
                  0px 12px 20px rgba(0, 255, 255, 0.8);
   }
   
@@ -252,7 +252,7 @@
   
   .card-learn-more {
     font-weight: 500;
-    color: #00ccff;
+    color: #eaeaea;
     font-size: 0.9rem;
     display: flex;
     align-items: center;
@@ -270,10 +270,10 @@
   
   
   .arrow-btn {
-    background-color: #00ccffde;
+    background-color: #eaeaea;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     border: none;
-    color: white;
+    color: #243c4c;
     font-size: 0.80rem;
     border-radius: 50%;
     width: 28px;
@@ -363,6 +363,8 @@
     left: 20px;                 
     transform: translateY(-50%);
     z-index: 10;
+    margin-top: -100px;
+
   }
   
   .back-btn:hover {
@@ -388,6 +390,8 @@
     right: 55px;                
     transform: translateY(-50%);
     z-index: 10;
+    margin-top: -100px;
+
   }
   
   .next-btn:hover {

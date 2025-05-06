@@ -47,7 +47,7 @@ function Projects() {
       <Navbar />
       <div className="page-content">
         <div className="page-header">
-          <h1 className="page-title">My Projects</h1>
+          <h1 className="page-title">Featured Projects</h1>
           <p className="page-subtitle">
             A collection of my work showcasing my skills and experience in web development.
           </p>
