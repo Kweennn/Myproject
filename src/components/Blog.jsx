@@ -164,25 +164,34 @@ function BlogPost() {
       
       {/* Hero Section */}
       <div className="blog-hero">
-        <div className="blog-header">
-          <h1 className="blog-title">Industry Visit Education Tour (IVET)</h1>
-          <p className="blog-description">
-            Sharing my journey and experiences from this educational trip, where WMSU IT students
-            explore real-world industry practices and learn valuable insights. Enjoy reading!
-          </p>
-        </div>
-        
-        <div className="scroll-indicator" onClick={scrollToTimeline}>
-          <span>Explore the journey</span>
-          <div className="scroll-arrow">↓</div>
-        </div>
-      </div>
+  <img 
+    src="/national.jpg"
+    alt="IVET Tour Group Photo" 
+    className="blog-hero-image" 
+  />
+  
+  <div className="blog-header">
+    <h1 className="blog-title">Industry Visit Education Tour (IVET)</h1>
+    <p className="blog-description">
+      Sharing my journey and experiences from this educational trip, where WMSU IT students
+      explore real-world industry practices and learn valuable insights. Enjoy reading!
+    </p>
+  </div>
+
+  <div className="scroll-indicator" onClick={scrollToTimeline}>
+    <span>Explore the journey</span>
+    <div className="scroll-arrow">↓</div>
+  </div>
+</div>
+
       
       {/* Timeline Section */}
       <div className="tour-timeline" ref={timelineRef}>
         <div className="timeline-header">
           <h2>Our 7-Day Journey</h2>
-          <p>Follow our educational adventure day by day</p>
+          <p>Follow our educational adventure day by day
+            and discover the exciting places we visited.
+          </p>
         </div>
         
         <div className="timeline-track">
@@ -275,7 +284,7 @@ function BlogPost() {
       
       {/* Footer */}
       <div className="blog-footer">
-        <p>© 2023 WMSU IT Educational Tour</p>
+        <p> © 2025 Queenie Canoy. All rights reserved.</p>
         <div className="footer-nav">
           <span onClick={() => navigate("/")}>Home</span>
           <span onClick={() => navigate("/about")}>About</span>

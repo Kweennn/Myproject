@@ -39,15 +39,13 @@ function Navbar() {
           <span className="logo-dot"></span>
         </div>
 
-        {/* Hamburger Icon */}
+        {/* Hamburger Icon (using Boxicons) */}
         <button 
-          className="navbar-hamburger" 
+          className={`navbar-hamburger ${menuOpen ? 'open' : ''}`} 
           onClick={toggleMenu} 
           aria-label="Toggle menu"
         >
-          <span className="hamburger-line"></span>
-          <span className="hamburger-line"></span>
-          <span className="hamburger-line"></span>
+          <i className={`bx bx-menu${menuOpen ? ' bx-x' : ''}`}></i>
         </button>
 
         {/* Navigation Menu */}

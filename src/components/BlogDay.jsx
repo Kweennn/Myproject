@@ -458,10 +458,10 @@ extraImages: [
   id: 7,
   sections: {
   bottom2: {
-  title: "Berry Fresh Experience",
+  title: "Goodbye! Premium Aircorn",
   date: "April 13, 2025",
-  description: `<p>Before heading back to Manila, we were given a few hours to explore on our own—and of course, we made the most out of it! After our visit to the Chinese Bell Church, we headed straight to Burnham Park, enjoying a leisurely walk while soaking in the cool Baguio breeze—something we knew we’d surely miss once we return home. The peaceful surroundings, fresh air, and relaxing vibe made it the perfect place to unwind and take it all in.</p>
-<p>We also couldn’t resist dressing up in traditional Igorot costumes—only ₱75 with a photo included! It was a fun and memorable cultural experience, and we made sure to take plenty of pictures to capture every moment. From solo shots to group poses, our cameras and phones were working overtime as we tried to document every bit of our last day in the City of Pines.</p>
+  description: `<p>Before heading back to Manila, we were given a few hours to explore on our own and of course, we made the most out of it! After our visit to the Chinese Bell Church, we headed straight to Burnham Park, enjoying a leisurely walk while soaking in the cool Baguio breezesomething we knew we’d surely miss once we return home. The peaceful surroundings, fresh air, and relaxing vibe made it the perfect place to unwind and take it all in.</p>
+<p>We also couldn’t resist dressing up in traditional Igorot costumes only ₱75 with a photo included! It was a fun and memorable cultural experience, and we made sure to take plenty of pictures to capture every moment. From solo shots to group poses, our cameras and phones were working overtime as we tried to document every bit of our last day in the City of Pines.</p>
 <p>Not wanting to waste a second, we then made our way to SM Baguio, where we grabbed some snacks and did some last-minute shopping. The open-air setup of the mall, with its view of the mountains, added a unique touch to the usual shopping experience. We truly tried to savor every bit of our time in this city, making the most of the chilly weather, the laid-back atmosphere, and the little joys Baguio has to offer. After our short adventure, we returned to the hotel to check out—grateful, refreshed, and a bit sentimental knowing we’d soon leave behind this premium “aircon” climate we came to love.</p>`,
 
   extraImages:[
@@ -472,10 +472,13 @@ extraImages: [
   ]
   },
   bottom3: {
-  title: "Calm Amid the Pines",
-  date: "April 12, 2025",
-  description: `<p>After checking in and enjoying a delicious lunch at Prince Plaza Hotel, we headed to the Philippine Military Academy for a relaxing hour to appreciate the stunning views and the rich history of the academy. The peaceful surroundings gave us a refreshing break, and we took time to reflect on the significance of this prestigious institution in shaping the country’s military leaders. The vast landscape, dotted with training facilities and the academy's iconic structures, added to the experience, leaving us in awe of its role in the nation's defense.</p>
-<p>Before continuing to our next destination, we made a quick stop at The Mansion, a historical site known for its beautiful architecture and ties to the Philippine presidency. As the official summer residence of the President of the Philippines, The Mansion holds both historical and political importance. We spent about 5–10 minutes there, taking photos and marveling at the grandeur of the place. Its elegant design, expansive lawn, and lush gardens made it a perfect spot for pictures and a brief moment of rest. It was a short but memorable stop that added a touch of national pride to our afternoon in Baguio!</p>`,
+  title: "A Day at Burnham Park",
+  date: "April 13, 2025",
+  description: `<p> Stepping into Burnham Park, I immediately felt the vibrant energy of Baguio come to life. Surrounded by towering pine trees and the refreshing mountain breeze, I wandered through its scenic landscapes, where every corner offered something unique.
+
+The heart of the park, Burnham Lake, drew me in with its charming swan boats gliding across the water. I couldn't resist taking a ride, soaking in the peacefulness of the moment. As I strolled further, I passed bustling gardens, cyclists cruising along shaded paths, and families enjoying picnics by the open spaces.
+
+What I loved most was the park’s ability to blend relaxation and adventure. Whether it was indulging in local street food, renting a bike to explore, or simply sitting by the flower beds, Burnham Park felt like the perfect escape an essential Baguio experience that embraced the city's spirit.</p>`,
 
 extraImages: [
               { src: pmaa, alt: "Intramuros View" },
@@ -485,11 +488,10 @@ extraImages: [
         ]
       },
       bottom4: {
-        title: "Baguio ",
-        date: "April 12, 2025",
+        title: "Baguio Moments ",
+        date: "April 13, 2025",
         description: `<p> We ended our day with a visit to Mines View Park, one of Baguio’s most iconic and scenic spots. As we arrived, the cool mountain breeze greeted us, offering a refreshing escape from the usual hustle and bustle. The panoramic view of the Benguet mountain ranges stretched endlessly before us, providing the perfect backdrop to unwind and appreciate the natural beauty of the region. The lush greenery and breathtaking scenery made it the ideal place to take a break and enjoy the tranquil atmosphere.</p>
-  <p>Many of us took the opportunity to dress in traditional Igorot attire, donning colorful woven garments and headdresses for souvenir photos. The cultural experience added a unique and fun twist to our visit, and we had a blast capturing the moments in front of the stunning views. As we wandered around, we noticed the park was also home to various stalls offering affordable local products, from intricately woven crafts and wooden carvings to delicious snacks like strawberry jams, fresh produce, and keychains. The wide selection made it an excellent place to pick up pasalubong (souvenirs) for our family and friends back home.</p>
-  <p>The atmosphere was lively yet peaceful, with locals and tourists alike enjoying the views, shopping for keepsakes, and taking in the fresh mountain air. We spent time browsing through the market, engaging with friendly vendors, and immersing ourselves in the local culture. Whether it was the perfect photo opportunity, buying a hand-carved souvenir, or simply enjoying the peaceful surroundings, it was a fun and memorable way to close another exciting day of our trip to Baguio. The experience left us feeling both relaxed and deeply connected to the rich heritage and beauty of this beloved destination.</p>`,                    
+  <p>Many of us took the opportunity to dress in traditional Igorot attire, donning colorful woven garments and headdresses for souvenir photos.As we wandered around, we noticed the park was also home to various stalls offering affordable local products, from intricately woven crafts and wooden carvings to delicious snacks like strawberry jams, fresh produce, and keychains. The wide selection made it an excellent place to pick up pasalubong (souvenirs) for our family and friends back home.</p>`,
         extraImages: [
                     { src: mines, alt: "Intramuros View" },
                     { src: j1, alt: "Rizal Monument" },
@@ -500,9 +502,9 @@ extraImages: [
 
     },
     images: [
-      { src: BSP, title: "Bangko Sentral ng Pilipinas" },
-      { src: hytecc, title: "Hytec Power Inc." },
-      { src: h4, title: "Insights" }
+      { src: b2, title: "Goodbye! Premium Aircorn" },
+      { src: hytecc, title: "Burnham Park" },
+      { src: h4, title: "Baguio Moments" },
 
     ],
   },  
@@ -567,17 +569,7 @@ blogBottom4Ref.current?.scrollIntoView({ behavior: "smooth" });
 return ( <div className="blog-page2"> 
 
 <header className="about-header"> 
-  <div className="about-logo">QJC</div> 
-  <button className="hamburger-menu" onClick={toggleMenu} aria-label="Toggle menu">☰</button>
-  <nav className={`nav-menu ${menuOpen ? "menu-active" : ""}`}> 
-    <ul className="about-nav-links">
-      <li onClick={() => { navigate("/"); toggleMenu(); }}>Home</li>
-      <li onClick={() => { navigate("/about"); toggleMenu(); }}>About</li>
-      <li onClick={() => { navigate("/experience"); toggleMenu(); }}>Projects</li>
-      <li onClick={() => { navigate("/blog"); toggleMenu(); }}>Blog</li>
-      <li onClick={() => { navigate("/contact"); toggleMenu(); }}>Contact</li> 
-    </ul> 
-  </nav> 
+<Navbar />
 </header>
 
   <div className="blog-top2"
@@ -606,14 +598,15 @@ return ( <div className="blog-page2">
   }}>
     <h1 className="blog-title">Our 7-Day of Adventure and Learning</h1>
     <p className="blog-description">
-      This exploration takes us beyond the classroom into dynamic environments where <br />
-      industry insights, technology, and professional expertise come to life.
+      This exploration takes us beyond the classroom into  dynamic<br />
+       environments where industry insights, technology, <br />
+       and professional expertise come to life.
     </p>
   </div>
 
   <div className="blog-bottom1">
     <section className="featured-attractions">
-    <h3>More about Day {dayId} of the tour</h3>
+ <h3>Day {dayId}: Setting Foot into Discover</h3>
       <div className="gallery-grid">
         {selectedDay.images.map((image, index) => (
           <div className="gallery-item" key={index}>
@@ -639,7 +632,7 @@ const getHeaderImageForSection = (dayId, sectionKey) => {
   if (dayId === 1) {
     if (sectionKey === "bottom2") return Rizal;
     if (sectionKey === "bottom3") return forte;
-    if (sectionKey === "bottom4") return Bay;
+    if (sectionKey === "bottom4") return Manila;
   }
   // Day 2 images
   else if (dayId === 2) {
@@ -697,7 +690,8 @@ return (
     color: "#ffffff",
     lineHeight: "1.9",
     padding: "0 15px",
-    marginBottom: "30px"
+    marginBottom: "30px",
+    marginLeft: "-45px",
   }}
 />
       </div>

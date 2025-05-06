@@ -12,7 +12,7 @@ function Projects() {
       description: "A simple and interactive task management app that allows users to add, edit, complete, and delete tasks.",
       image: "/todo.png",
       category: "web",
-      tags: ["React", "JavaScript", "CSS", "Local Storage", "Responsive Design"],
+      tags: ["React", "JavaScript", "CSS", "Local Storage",],
       github: "https://github.com/Kweennn/todo",
       liveDemo: "https://todoqueen.netlify.app"
     },
@@ -29,10 +29,10 @@ function Projects() {
     {
       id: 3,
       title: "Petpal",
-      description: "A responsive website for pet adoption, fostering, and boarding with easy browsing, applications, and shelter connection.",
+      description: "A responsive website for pet adoption, fostering, and boarding with easy browsing, and shelter connection.",
       image: "/Petpal.png",
       category: "web",
-      tags: ["HTML", "CSS", "JavaScript", "Responsive Design"],
+      tags: ["HTML", "CSS", "JavaScript", "Bootstrap"],
       github: "https://github.com/Kweennn/petpal",
       liveDemo: "https://ttechmart.online/",
     },
@@ -47,7 +47,7 @@ function Projects() {
       <Navbar />
       <div className="page-content">
         <div className="page-header">
-          <h1 className="page-title">My Projects</h1>
+          <h1 className="page-title">Featured Projects</h1>
           <p className="page-subtitle">
             A collection of my work showcasing my skills and experience in web development.
           </p>
@@ -81,18 +81,7 @@ function Projects() {
                     <span className="project-tag" key={index}>{tag}</span>
                   ))}
                 </div>
-                <div className="project-links">
-                  {project.liveDemo && (
-                    <a href={project.liveDemo} target="_blank" rel="noopener noreferrer" className="project-link demo-link">
-                      Live Demo
-                    </a>
-                  )}
-                  {project.github && (
-                    <a href={project.github} target="_blank" rel="noopener noreferrer" className="project-link github-link">
-                      GitHub Repo
-                    </a>
-                  )}
-                </div>
+
               </div>
             </div>
           ))}
