@@ -33,7 +33,7 @@ body {
   flex-direction: column;
   min-height: 100vh;
   width: 100vw;
-  max-width: 100%;
+  max-width: 100;
   overflow-x: hidden;
   background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
   margin: 0;
@@ -65,12 +65,12 @@ body {
 .blog-header {
   max-width: 800px;
   margin: 0 auto;
+   margin-top: -200px;
   animation: fadeIn 1s ease-out;
 }
 
 .blog-title {
   font-size: 3.5rem;
-
   font-weight: 700;
   font-family: 'Montserrat', sans-serif;
   background: linear-gradient(90deg, #3b82f6, #10b981);
@@ -530,11 +530,6 @@ body {
   object-fit: cover;
 }
 
-.header-content {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-}
 
 .day-title {
   font-size: 2.2rem;

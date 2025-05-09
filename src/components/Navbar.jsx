@@ -86,13 +86,7 @@ function Navbar() {
               <span className="nav-icon"></span>
               <span className="nav-text">Blog</span>
             </li>
-            <li 
-              className={isActive("/certificate") ? "active" : ""} 
-              onClick={() => { navigate("/certificate"); toggleMenu(); }}
-            >
-              <span className="nav-icon"></span>
-              <span className="nav-text">Certificate</span>
-            </li>
+   
             <li 
               className={isActive("/contact") ? "active" : ""} 
               onClick={() => { navigate("/contact"); toggleMenu(); }}

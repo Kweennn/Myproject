@@ -90,7 +90,7 @@ function BlogPost() {
       images: [smm, ham, sm],
       title: "Day 7",
       date: "April 13, 2025",
-      excerpt: "Free hours spent exploring Baguio, SM Baguio, and visiting Burnham Park.",
+      excerpt:"Free hours pleasantly spent exploring Baguio, SM Baguio, and visiting Burnham Park.",
       link: "/day/7", 
     },
   ];
@@ -170,13 +170,15 @@ function BlogPost() {
     className="blog-hero-image" 
   />
   
-  <div className="blog-header">
-    <h1 className="blog-title">Industry Visit Education Tour (IVET)</h1>
-    <p className="blog-description">
-      Sharing my journey and experiences from this educational trip, where WMSU IT students
-      explore real-world industry practices and learn valuable insights. Enjoy reading!
-    </p>
-  </div>
+  <div className="blog-header" style={{ marginTop: '50px', paddingTop: '30px' }}>
+  <h1 className="blog-title">Industry Visit Education Tour (IVET)</h1>
+  <p className="blog-description" style={{ color: "#ffffff" }}>
+  Sharing my journey and experiences from this educational trip, where WMSU IT students
+  explore real-world industry practices and learn valuable insights. Enjoy reading!
+</p>
+
+</div>
+
 
   <div className="scroll-indicator" onClick={scrollToTimeline}>
     <span>Explore the journey</span>
@@ -186,37 +188,106 @@ function BlogPost() {
 
       
       {/* Timeline Section */}
-      <div className="tour-timeline" ref={timelineRef}>
-        <div className="timeline-header">
-          <h2>Our 7-Day Journey</h2>
-          <p>Follow our educational adventure day by day
-            and discover the exciting places we visited.
-          </p>
-        </div>
+      <div className="tour-timeline" 
+  ref={timelineRef}
+  style={{
+    backgroundColor: "#58707e",
+    padding: '60px 20px',
+    borderRadius: '8px',
+    boxShadow: '0 4px 20px rgba(0, 0, 0, 0.05)',
+    margin: '40px 20px',
+    marginTop: '-20px',
+  }}
+>
+  <div className="timeline-header" style={{ textAlign: 'center', marginBottom: '40px' }}>
+    <h2 style={{ color: "#d89292 ", marginBottom: '15px' }}>Our 7-Day Journey</h2>
+    <p style={{ color: "#4ecdc4", }}>
+      Follow our educational adventure day by day
+      and discover the exciting places we visited.
+    </p>
+  </div>
+
         
-        <div className="timeline-track">
-          <div className="timeline-line"></div>
-          
-          {blogPosts.map(post => (
-            <div 
-              key={post.id} 
-              className={`timeline-day ${activeDay === post.id ? 'active' : ''}`}
-              onClick={() => handleDayClick(post.id)}
-            >
-              <div className="timeline-marker">{post.id}</div>
-              <div className="timeline-date">{post.date}</div>
-            </div>
-          ))}
-        </div>
+  <div className="timeline-track" style={{ position: 'relative' }}>
+  <div className="timeline-line" style={{ 
+    backgroundColor: "#3b82f6",
+    height: '4px',
+    position: 'absolute',
+    top: '50%',
+    left: '0',
+    right: '0',
+    transform: 'translateY(-50%)',
+    zIndex: 1
+  }}></div>
+  
+  {blogPosts.map(post => (
+    <div
+      key={post.id}
+      className={`timeline-day ${activeDay === post.id ? 'active' : ''}`}
+      onClick={() => handleDayClick(post.id)}
+      style={{
+        position: 'relative',
+        display: 'inline-block',
+        margin: '0 20px',
+        cursor: 'pointer',
+        zIndex: 2,
+        transition: 'transform 0.3s ease'
+      }}
+    >
+      <div className="timeline-marker" style={{
+        width: '40px',
+        height: '40px',
+        borderRadius: '50%',
+        backgroundColor: activeDay === post.id ? "#4ecdc4" : "#d89292",
+        color: '#faf3f3',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        fontWeight: 'bold',
+        boxShadow: activeDay === post.id ? 
+          '0 0 0 4px rgba(78, 205, 196, 0.3), 0 4px 10px rgba(0, 0, 0, 0.2)' : 
+          '0 4px 8px rgba(0, 0, 0, 0.1)',
+        transition: 'all 0.3s ease'
+      }}>{post.id}</div>
+      <div className="timeline-date" style={{
+        marginTop: '10px',
+        fontSize: '0.85rem',
+        color: activeDay === post.id ? "#" : "#d89292",
+        fontWeight: activeDay === post.id ? 'bold' : 'normal'
+      }}>{post.date}</div>
+    </div>
+  ))}
+</div>
+
       </div>
       
       {/* Blog Cards Section */}
-      <div className="blog-slider-container" ref={cardsRef}>
+      <div className="blog-slider-container" 
+  ref={cardsRef}
+  style={{
+    backgroundColor: "#60a5fa",
+    padding: '40px 20px',
+    marginTop: '-50px',
+    boxShadow: '0 4px 15px rgba(0, 0, 0, 0.05)'
+  }}>
         <button 
           className="back-btn" 
           onClick={handlePrev}
           disabled={currentIndex === 0}
           aria-label="Previous cards"
+          style={{
+            marginTop: "-100px",
+
+            backgroundColor: "#243c4c",
+            color: "#faf3f3",
+            border: "none",
+            borderRadius: "50%",
+            width: "40px",
+            height: "40px",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center"
+          }}
         >
           ❮
         </button>
@@ -258,40 +329,105 @@ function BlogPost() {
                   </div>
                 </div>
                 
-                <div className="blog-card-content">
-                  <span className="card-date">{post.date}</span>
-                  <h3 className="card-title">{post.title}</h3>
-                  <p className="card-excerpt">{post.excerpt}</p>
-                  <div className="card-learn-more">
-                    <span className="learn-more-link">LEARN MORE</span>
-                    <button className="arrow-btn" aria-label="View details">❯</button>
-                  </div>
-                </div>
+                <div className="blog-card-content" style={{ 
+  backgroundColor: "#d89292",
+}}>
+  <span className="card-date" style={{ color: "#ffffff" }}>{post.date}</span>
+  <h3 className="card-title" style={{ color: "#d89292" }}>{post.title}</h3>
+  <p className="card-excerpt" style={{ color: "#ffffff  " }}>{post.excerpt}</p>
+  <div className="card-learn-more" style={{ 
+  display: "flex",
+  justifyContent: "space-between",
+  alignItems: "center"
+}}>
+  <span className="learn-more-link" style={{ color: "#4ecdc4" }}>LEARN MORE</span>
+  <button className="arrow-btn" aria-label="View details" style={{
+    backgroundColor: "#4ecdc4",
+    color: "#faf3f3"
+  }}>❯</button>
+</div>
+
+</div>
+
               </div>
             ))}
           </div>
         </div>
         
-        <button 
-          className="next-btn" 
-          onClick={handleNext}
-          disabled={currentIndex >= blogPosts.length - visibleCards}
-          aria-label="Next cards"
-        >
-          ❯
-        </button>
+        <button
+  className="next-btn"
+  onClick={handleNext}
+  disabled={currentIndex >= blogPosts.length - visibleCards}
+  aria-label="Next cards"
+  style={{
+    backgroundColor: "#243c4c",
+    color: "#faf3f3",
+    border: "none",
+    borderRadius: "50%",
+    width: "40px",
+    height: "40px",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center"
+  }}
+>
+  ❯
+</button>
+
       </div>
       
       {/* Footer */}
-      <div className="blog-footer">
-        <p> © 2025 Queenie Canoy. All rights reserved.</p>
-        <div className="footer-nav">
-          <span onClick={() => navigate("/")}>Home</span>
-          <span onClick={() => navigate("/about")}>About</span>
-          <span onClick={() => navigate("/contact")}>Contact</span>
-        </div>
-      </div>
-      
+      <div className="blog-footer" style={{
+  backgroundColor: "#58707e",
+  color: "#faf3f3",
+  padding: "30px 20px",
+  textAlign: "center"
+}}>
+  <p style={{ 
+    color: "#faf3f3", 
+    margin: "0 0 15px 0" 
+  }}> © 2025 Queenie Canoy. All rights reserved.</p>
+  
+  <div className="footer-nav" style={{
+    display: "flex",
+    justifyContent: "center",
+    gap: "30px"
+  }}>
+    <span 
+      onClick={() => navigate("/")}
+      style={{
+        color: "#faf3f3",
+        cursor: "pointer",
+        transition: "color 0.3s ease"
+      }}
+      onMouseOver={(e) => e.target.style.color = "#4ecdc4"}
+      onMouseOut={(e) => e.target.style.color = "#faf3f3"}
+    >Home</span>
+    
+    <span 
+      onClick={() => navigate("/about")}
+      style={{
+        color: "#faf3f3",
+        cursor: "pointer",
+        transition: "color 0.3s ease"
+      }}
+      onMouseOver={(e) => e.target.style.color = "#4ecdc4"}
+      onMouseOut={(e) => e.target.style.color = "#faf3f3"}
+    >About</span>
+    
+    <span 
+      onClick={() => navigate("/contact")}
+      style={{
+        color: "#faf3f3",
+        cursor: "pointer",
+        transition: "color 0.3s ease"
+      }}
+      onMouseOver={(e) => e.target.style.color = "#4ecdc4"}
+      onMouseOut={(e) => e.target.style.color = "#faf3f3"}
+    >Contact</span>
+  </div>
+</div>
+
       {/* Back to Top Button */}
       {showBackToTop && (
         <button 

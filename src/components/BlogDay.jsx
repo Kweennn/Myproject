@@ -1,9 +1,10 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import Navbar from './Navbar';
 import Rizal_Monument from '../assets/Rizal_Monument.jpg';
 import Fort_Santiago from '../assets/Fort_Santiago.jpg';
-import Moa from '../assets/Moa.jpg';import rizal2 from '../assets/rizal2.jpg';
+import Moa from '../assets/Moa.jpg';
+import rizal2 from '../assets/rizal2.jpg';
 import gomburza from '../assets/gomburza.jpg';
 import classrizal from '../assets/classrizal.jpg';
 import "../Blog.css";
@@ -94,7 +95,6 @@ import sou from '../assets/sou.jpg';
 import b1 from '../assets/b1.jpg';
 import b2 from '../assets/b2.jpg';
 import b3 from '../assets/b3.jpg';
-
 
 
 
@@ -434,8 +434,7 @@ extraImages: [
         title: "Baguio ",
         date: "April 12, 2025",
         description: `<p> We ended our day with a visit to Mines View Park, one of Baguio’s most iconic and scenic spots. As we arrived, the cool mountain breeze greeted us, offering a refreshing escape from the usual hustle and bustle. The panoramic view of the Benguet mountain ranges stretched endlessly before us, providing the perfect backdrop to unwind and appreciate the natural beauty of the region. The lush greenery and breathtaking scenery made it the ideal place to take a break and enjoy the tranquil atmosphere.</p>
-  <p>Many of us took the opportunity to dress in traditional Igorot attire, donning colorful woven garments and headdresses for souvenir photos. The cultural experience added a unique and fun twist to our visit, and we had a blast capturing the moments in front of the stunning views. As we wandered around, we noticed the park was also home to various stalls offering affordable local products, from intricately woven crafts and wooden carvings to delicious snacks like strawberry jams, fresh produce, and keychains. The wide selection made it an excellent place to pick up pasalubong (souvenirs) for our family and friends back home.</p>
-  <p>The atmosphere was lively yet peaceful, with locals and tourists alike enjoying the views, shopping for keepsakes, and taking in the fresh mountain air. We spent time browsing through the market, engaging with friendly vendors, and immersing ourselves in the local culture. Whether it was the perfect photo opportunity, buying a hand-carved souvenir, or simply enjoying the peaceful surroundings, it was a fun and memorable way to close another exciting day of our trip to Baguio. The experience left us feeling both relaxed and deeply connected to the rich heritage and beauty of this beloved destination.</p>`,                    
+  <p>Many of us took the opportunity to dress in traditional Igorot attire, donning colorful woven garments and headdresses for souvenir photos. The cultural experience added a unique and fun twist to our visit, and we had a blast capturing the moments in front of the stunning views. As we wandered around, we noticed the park was also home to various stalls offering affordable local products, from intricately woven crafts and wooden carvings to delicious snacks like strawberry jams, fresh produce, and keychains. The wide selection made it an excellent place to pick up pasalubong (souvenirs) for our family and friends back home.</p>`,     
         extraImages: [
                     { src: mines, alt: "Intramuros View" },
                     { src: j1, alt: "Rizal Monument" },
@@ -510,6 +509,30 @@ extraImages: [
   },  
 
 ];
+// Add this with your other useState declarations at the top of the component
+const [showBackToTop, setShowBackToTop] = useState(false);
+
+// Add this function after your other function declarations
+const scrollToTop = () => {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+};
+
+// Add this useEffect to handle showing/hiding the back-to-top button
+useEffect(() => {
+  const handleScroll = () => {
+    if (window.scrollY > 300) {
+      setShowBackToTop(true);
+    } else {
+      setShowBackToTop(false);
+    }
+  };
+
+  window.addEventListener('scroll', handleScroll);
+  return () => window.removeEventListener('scroll', handleScroll);
+}, []);
 
 const selectedDay = blogPosts.find(post => post.id === parseInt(dayId, 10));
 if (!selectedDay) return <p>Sorry, the selected day was not found!</p>;
@@ -572,41 +595,13 @@ return ( <div className="blog-page2">
 <Navbar />
 </header>
 
-  <div className="blog-top2"
-    style={{
-      backgroundImage: `url(${national})`,
-      backgroundSize: 'cover',
-      backgroundPosition: 'center',
-      backgroundRepeat: 'no-repeat',
-      height: '550px',
-      display: 'flex',
-      flexDirection: 'column',
-      justifyContent: 'center',
-      alignItems: 'center',
-      color: 'white',
-      textAlign: 'center',
-      padding: '200px 300px',
-    }}>
-  </div>
 
-  <div className="blog-header" style={{
-    position: 'relative',
-    top: '-150px',
-    zIndex: 2,
-    padding: '20px 40px',
-    textShadow: '2px 2px 5px rgba(0, 0, 0, 0.8)',
-  }}>
-    <h1 className="blog-title">Our 7-Day of Adventure and Learning</h1>
-    <p className="blog-description">
-      This exploration takes us beyond the classroom into  dynamic<br />
-       environments where industry insights, technology, <br />
-       and professional expertise come to life.
-    </p>
-  </div>
+
 
   <div className="blog-bottom1">
     <section className="featured-attractions">
- <h3>Day {dayId}: Setting Foot into Discover</h3>
+       <h3 style={{ marginTop: "70px" }}>Day {dayId}: Setting Foot into Discover</h3>
+
       <div className="gallery-grid">
         {selectedDay.images.map((image, index) => (
           <div className="gallery-item" key={index}>
@@ -699,59 +694,134 @@ return (
     <h2 style={{ textAlign: "center", marginTop: "30px", marginBottom: "10px", color: "#ffffff" }}>
       Gallery
     </h2>
-    <div className="clickable-images">
-      {section.extraImages.map((img, index) => (
-        <img
-          key={index}
-          src={img.src}
-          alt={img.alt || `Image ${index + 1}`}
-          className="thumbnail"
-          onClick={() => openModal(index, sectionKey)}
-          style={{
-            cursor: "pointer",
-            width: "20%",
-            height: "170px",
-            objectFit: "cover",
-            margin: "10px 5px",
-            borderRadius: "8px",
-            boxShadow: "0 2px 6px rgba(0,0,0,0.2)"
-          }}
-        />
-      ))}
-    </div>
+    <div className="clickable-images" style={{
+  display: "flex",
+  flexWrap: "wrap",
+  justifyContent: "center",
+  gap: "30px",
+  margin: "15px 0"
+}}>
+  {section.extraImages.map((img, index) => (
+    <img
+      key={index}
+      src={img.src}
+      alt={img.alt || `Image ${index + 1}`}
+      className="thumbnail"
+      onClick={() => openModal(index, sectionKey)}
+      style={{
+        cursor: "pointer",
+        width: "calc(20% - 10px)",
+        minWidth: "150px",
+        aspectRatio: "1/1",
+        objectFit: "cover",
+        borderRadius: "8px",
+        boxShadow: "0 2px 6px rgba(0,0,0,0.2)",
+        transition: "transform 0.3s ease, box-shadow 0.3s ease",
+        "&:hover": {
+          transform: "translateY(-5px)",
+          boxShadow: "0 5px 15px rgba(0,0,0,0.3)"
+        }
+      }}
+    />
+  ))}
+</div>
+
   </div>
 </div>
 
 );
 })}
 
-```
-  {/* Image Modal */}
-  {modalOpen && (
-    <div className="image-modal" onClick={closeModal} style={{
-      position: "fixed",
-      top: 0, left: 0,
-      width: "100vw",
-      height: "100vh",
-      backgroundColor: "rgba(0,0,0,0.8)",
-      display: "flex",
-      alignItems: "center",
-      justifyContent: "center",
-      zIndex: 9999,
-      flexDirection: "column"
-    }}>
-      <button onClick={(e) => { e.stopPropagation(); showPrev(); }} className="modal-nav-button prev-button">‹</button>
-      <img
-        src={selectedDay.sections[activeSection].extraImages[currentIndex].src}
-        alt={selectedDay.sections[activeSection].extraImages[currentIndex].alt}
-        className="modal-image"
-        onClick={(e) => e.stopPropagation()}
-      />
-      <button onClick={(e) => { e.stopPropagation(); showNext(); }} className="modal-nav-button next-button">›</button>
-      <button onClick={(e) => { e.stopPropagation(); closeModal(); }} className="modal-close-button">✖</button>
-    </div>
-  )}
+ {/* Image Modal */}
+{modalOpen && (
+  <div className="image-modal" onClick={closeModal} style={{
+    position: "fixed",
+    top: 0, left: 0,
+    width: "100vw",
+    height: "100vh",
+    backgroundColor: "rgba(0,0,0,0.8)",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    zIndex: 9999,
+    flexDirection: "column"
+  }}>
+    <button onClick={(e) => { e.stopPropagation(); showPrev(); }} className="modal-nav-button prev-button">‹</button>
+    <img
+      src={selectedDay.sections[activeSection].extraImages[currentIndex].src}
+      alt={selectedDay.sections[activeSection].extraImages[currentIndex].alt}
+      className="modal-image"
+      onClick={(e) => e.stopPropagation()}
+    />
+    <button onClick={(e) => { e.stopPropagation(); showNext(); }} className="modal-nav-button next-button">›</button>
+    <button onClick={(e) => { e.stopPropagation(); closeModal(); }} className="modal-close-button">✖</button>
+  </div>
+)}
+
+      {/* Footer */}
+      <div className="blog-footer" style={{
+  backgroundColor: "#58707e",
+  color: "#faf3f3",
+  padding: "30px 20px",
+  textAlign: "center"
+}}>
+  <p style={{ 
+    color: "#faf3f3", 
+    margin: "0 0 15px 0" 
+  }}> © 2025 Queenie Canoy. All rights reserved.</p>
+  
+  <div className="footer-nav" style={{
+    display: "flex",
+    justifyContent: "center",
+    gap: "30px"
+  }}>
+    <span 
+      onClick={() => navigate("/")}
+      style={{
+        color: "#faf3f3",
+        cursor: "pointer",
+        transition: "color 0.3s ease"
+      }}
+      onMouseOver={(e) => e.target.style.color = "#4ecdc4"}
+      onMouseOut={(e) => e.target.style.color = "#faf3f3"}
+    >Home</span>
+    
+    <span 
+      onClick={() => navigate("/about")}
+      style={{
+        color: "#faf3f3",
+        cursor: "pointer",
+        transition: "color 0.3s ease"
+      }}
+      onMouseOver={(e) => e.target.style.color = "#4ecdc4"}
+      onMouseOut={(e) => e.target.style.color = "#faf3f3"}
+    >About</span>
+    
+    <span 
+      onClick={() => navigate("/contact")}
+      style={{
+        color: "#faf3f3",
+        cursor: "pointer",
+        transition: "color 0.3s ease"
+      }}
+      onMouseOver={(e) => e.target.style.color = "#4ecdc4"}
+      onMouseOut={(e) => e.target.style.color = "#faf3f3"}
+    >Contact</span>
+  </div>
 </div>
+
+{/* Back to Top Button */}
+{showBackToTop && (
+  <button
+    className="back-to-top"
+    onClick={scrollToTop}
+    aria-label="Back to top"
+  >
+    ↑
+  </button>
+)}
+</div>
+
 );
 }
 
