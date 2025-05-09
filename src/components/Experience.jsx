@@ -641,9 +641,10 @@ function Experience() {
   WebkitBackgroundClip: "unset" 
 }}>
   My Experience</h1>
-<p className="page-subtitle" style={{ color: "#4ecdc4," }}>
-  A journey through my professional career and projects
+  <p className="page-subtitle" style={{ color: "#4ecdc4 ", }}>
+  A journey through my professional career and projects.
 </p>
+
 
             
             <div style={{ 

@@ -530,11 +530,6 @@ body {
   object-fit: cover;
 }
 
-.header-content {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-}
 
 .day-title {
   font-size: 2.2rem;

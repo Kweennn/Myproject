@@ -37,11 +37,10 @@ function AboutMe() {
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
-
     const ctx = canvas.getContext('2d');
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
-
+    
     // Cute shapes and colors
     const shapes = ['circle', 'heart', 'star', 'triangle', 'square'];
     const colors = [
@@ -76,7 +75,7 @@ function AboutMe() {
         this.x += this.speedX;
         this.y += this.speedY;
         this.rotation += this.rotationSpeed;
-
+        
         // Boundary check with bounce effect
         if (this.x > canvas.width || this.x < 0) {
           this.speedX = -this.speedX;
@@ -92,7 +91,7 @@ function AboutMe() {
         ctx.rotate(this.rotation);
         ctx.globalAlpha = this.opacity;
         ctx.fillStyle = this.color;
-
+        
         switch (this.shape) {
           case 'heart':
             this.drawHeart();
@@ -109,7 +108,7 @@ function AboutMe() {
           default:
             this.drawCircle();
         }
-
+        
         ctx.restore();
       }
 
@@ -168,8 +167,7 @@ function AboutMe() {
 
     // Create particles
     const particlesArray = [];
-    const numberOfParticles = 60;
-
+    const numberOfParticles = window.innerWidth < 768 ? 30 : 60; // Reduce particles on mobile
     for (let i = 0; i < numberOfParticles; i++) {
       particlesArray.push(new CuteParticle());
     }
@@ -178,7 +176,6 @@ function AboutMe() {
     function animate() {
       requestAnimationFrame(animate);
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-
       for (let i = 0; i < particlesArray.length; i++) {
         particlesArray[i].update();
         particlesArray[i].draw();
@@ -194,7 +191,7 @@ function AboutMe() {
     };
 
     window.addEventListener('resize', handleResize);
-
+    
     return () => {
       window.removeEventListener('resize', handleResize);
     };
@@ -218,6 +215,54 @@ function AboutMe() {
     return () => clearInterval(interval);
   }, []);
 
+  // Responsive styles
+  const responsiveStyles = {
+    container: {
+      padding: window.innerWidth < 768 ? '20px 15px' : '40px 20px',
+    },
+    typingContainer: {
+      fontSize: window.innerWidth < 768 ? '2rem' : '3rem',
+    },
+    subtitle: {
+      fontSize: window.innerWidth < 768 ? '1.2rem' : '1.5rem',
+      marginBottom: window.innerWidth < 768 ? '30px' : '40px',
+    },
+    profileSection: {
+      flexDirection: window.innerWidth < 992 ? 'column' : 'row',
+      gap: window.innerWidth < 992 ? '30px' : '40px',
+    },
+    profileCard: {
+      maxWidth: window.innerWidth < 768 ? '280px' : '400px',
+      height: window.innerWidth < 768 ? '280px' : '400px',
+      margin: '0 auto',
+    },
+    tabButtons: {
+      padding: window.innerWidth < 768 ? '0 5px' : '0',
+    },
+    tabBtn: {
+      padding: window.innerWidth < 768 ? '12px 8px' : '20px 10px',
+      fontSize: window.innerWidth < 768 ? '0.85rem' : '1rem',
+    },
+    tabContent: {
+      padding: window.innerWidth < 768 ? '20px 15px' : '30px',
+    },
+    interestsGrid: {
+      gridTemplateColumns: window.innerWidth < 768 
+        ? '1fr' 
+        : window.innerWidth < 992 
+          ? 'repeat(2, 1fr)' 
+          : 'repeat(auto-fit, minmax(200px, 1fr))',
+    },
+    skillPills: {
+      flexWrap: 'wrap',
+      gap: window.innerWidth < 768 ? '8px' : '12px',
+    },
+    skillPill: {
+      padding: window.innerWidth < 768 ? '6px 12px' : '8px 16px',
+      fontSize: window.innerWidth < 768 ? '0.8rem' : '0.9rem',
+    }
+  };
+
   return (
     <div className="page-container">
       <Navbar />
@@ -225,32 +270,68 @@ function AboutMe() {
       <div className="hero-container">
         <canvas ref={canvasRef} className="background-canvas"></canvas>
         
-        <div className="about-me-container" style={{ opacity: isVisible ? 1 : 0, transition: 'opacity 1s ease' }}>
+        <div 
+          className="about-me-container" 
+          style={{ 
+            opacity: isVisible ? 1 : 0, 
+            transition: 'opacity 1s ease',
+            ...responsiveStyles.container
+          }}
+        >
           {/* Animated Intro */}
           <div className="about-intro">
-            <div className="typing-container">
+            <div 
+              className="typing-container" 
+              style={responsiveStyles.typingContainer}
+            >
               {typedText}
               {!typingComplete && <span className="cursor"></span>}
               {showEmoji && <span className="wave-emoji">👋</span>}
             </div>
             
-            <h2 className="about-subtitle">Web Developer & UI Designer</h2>
+            <h2 
+              className="about-subtitle" 
+              style={{ 
+                color: "#a18cd1",
+                ...responsiveStyles.subtitle
+              }}
+            >
+              Web Developer & UI Designer
+            </h2>
           </div>
           
           {/* Interactive Profile Section */}
-          <div className="profile-section">
+          <div 
+            className="profile-section" 
+            style={responsiveStyles.profileSection}
+          >
             <div className="profile-card-container">
-              <div className="profile-card-3d">
-                <div className="card-front">
-                  <img src="me.png" alt="Profile" className="profile-image-3d" />
+              <div 
+                className="profile-card-3d" 
+                style={responsiveStyles.profileCard}
+              >
+                <div 
+                  className="card-front" 
+                  style={{ backgroundColor: "#4ecdc4" }}
+                >
+                  <img 
+                    src="me.png" 
+                    alt="Profile" 
+                    className="profile-image-3d" 
+                  />
                   <div className="card-overlay">
                     <span>Click to flip</span>
                   </div>
                 </div>
-                <div className="card-back">
+                <div 
+                  className="card-back" 
+                  style={{ backgroundColor: "#a18cd1" }}
+                >
                   <div className="fun-fact-container">
                     <h3>Did you know?</h3>
-                    <p className="fun-fact">{funFacts[currentFactIndex]}</p>
+                    <p className="fun-fact">
+                      {funFacts[currentFactIndex]}
+                    </p>
                     <div className="fact-indicator">
                       {funFacts.map((_, index) => (
                         <span
@@ -264,37 +345,76 @@ function AboutMe() {
               </div>
             </div>
             
-            <div className="about-content-tabs">
-              <div className="tab-buttons">
+            <div 
+              className="about-content-tabs" 
+              style={{ borderColor: "#4ecdc4" }}
+            >
+              <div 
+                className="tab-buttons" 
+                style={{ 
+                  borderBottomColor: "#4ecdc4",
+                  ...responsiveStyles.tabButtons
+                }}
+              >
                 <button
                   className={`tab-btn ${activeTab === 'professional' ? 'active' : ''}`}
                   onClick={() => setActiveTab('professional')}
+                  style={{
+                    color: activeTab === 'professional' ? "#4ecdc4" : "#243c4c",
+                    borderBottomColor: activeTab === 'professional' ? "#4ecdc4" : "transparent",
+                    ...responsiveStyles.tabBtn
+                  }}
                 >
-                  <FaLaptopCode className="tab-icon" /> <span>Professional</span>
+                  <FaLaptopCode 
+                    className="tab-icon" 
+                    style={{ color: activeTab === 'professional' ? "#4ecdc4" : "#243c4c" }} 
+                  />
+                  <span>Professional</span>
                 </button>
                 <button
                   className={`tab-btn ${activeTab === 'personal' ? 'active' : ''}`}
                   onClick={() => setActiveTab('personal')}
+                  style={{
+                    color: activeTab === 'personal' ? "#a18cd1" : "#243c4c",
+                    borderBottomColor: activeTab === 'personal' ? "#a18cd1" : "transparent",
+                    ...responsiveStyles.tabBtn
+                  }}
                 >
-                  <FaFilm className="tab-icon" /> <span>Personal</span>
+                  <FaFilm 
+                    className="tab-icon" 
+                    style={{ color: activeTab === 'personal' ? "#a18cd1" : "#243c4c" }} 
+                  />
+                  <span>Personal</span>
                 </button>
                 <button
                   className={`tab-btn ${activeTab === 'skills' ? 'active' : ''}`}
                   onClick={() => setActiveTab('skills')}
+                  style={{
+                    color: activeTab === 'skills' ? "#ff9a9e" : "#243c4c",
+                    borderBottomColor: activeTab === 'skills' ? "#ff9a9e" : "transparent",
+                    ...responsiveStyles.tabBtn
+                  }}
                 >
-                  <FaCode className="tab-icon" /> <span>Skills</span>
-                </button>
+                  <FaCode 
+                    className="tab-icon" 
+                    style={{ color: activeTab === 'skills' ? "#ff9a9e" : "#243c4c" }} 
+                  />
+                  <span>Skills</span>
+                  </button>
               </div>
               
-              <div className="tab-content">
+              <div 
+                className="tab-content"
+                style={responsiveStyles.tabContent}
+              >
                 {activeTab === 'professional' && (
                   <div className="tab-pane fade-in">
-                    <h3>My Professional Journey</h3>
-                    <p>
+                    <h3 style={{ color: "#4ecdc4" }}>My Professional Journey</h3>
+                    <p style={{ color: "#4a5963" }}>
                       I specialize in creating responsive, user-friendly websites and applications that combine creative design with efficient functionality.
                       With a background in Information Technology and a love for continuous learning, I enjoy tackling complex problems and turning ideas into reality through code.
                     </p>
-                    <p>
+                    <p style={{ color: "#4a5963" }}>
                       My journey in web development started during my university years, and I've been honing my skills ever since, working on projects ranging from e-commerce platforms to interactive data visualizations.
                     </p>
                   </div>
@@ -302,27 +422,54 @@ function AboutMe() {
                 
                 {activeTab === 'personal' && (
                   <div className="tab-pane fade-in">
-                    <h3>Beyond The Code</h3>
-                    <div className="interests-grid">
-                      <div className="interest-item">
-                        <FaScroll className="interest-icon" />
-                        <h4>Scrolling</h4>
-                        <p>When I need a break, you'll find me endlessly scrolling through social media for inspiration and memes.</p>
+                    <h3 style={{ color: "#a18cd1" }}>Beyond The Code</h3>
+                    <div 
+                      className="interests-grid"
+                      style={responsiveStyles.interestsGrid}
+                    >
+                      <div 
+                        className="interest-item" 
+                        style={{ 
+                          borderColor: "#a18cd1", 
+                          boxShadow: "0 5px 15px rgba(161, 140, 209, 0.1)" 
+                        }}
+                      >
+                        <FaScroll className="interest-icon" style={{ color: "#a18cd1" }} />
+                        <h4 style={{ color: "#243c4c" }}>Scrolling</h4>
+                        <p style={{ color: "#4a5963" }}>When I need a break, you'll find me endlessly scrolling through social media for inspiration and memes.</p>
                       </div>
-                      <div className="interest-item">
-                        <FaFilm className="interest-icon" />
-                        <h4>Anime</h4>
-                        <p>I'm a huge anime fan! I love getting immersed in different worlds and storytelling styles.</p>
+                      <div 
+                        className="interest-item" 
+                        style={{ 
+                          borderColor: "#a18cd1", 
+                          boxShadow: "0 5px 15px rgba(161, 140, 209, 0.1)" 
+                        }}
+                      >
+                        <FaFilm className="interest-icon" style={{ color: "#a18cd1" }} />
+                        <h4 style={{ color: "#243c4c" }}>Anime</h4>
+                        <p style={{ color: "#4a5963" }}>I'm a huge anime fan! I love getting immersed in different worlds and storytelling styles.</p>
                       </div>
-                      <div className="interest-item">
-                        <FaBook className="interest-icon" />
-                        <h4>Reading</h4>
-                        <p>Science fiction and technical books fill my shelves and my mind.</p>
+                      <div 
+                        className="interest-item" 
+                        style={{ 
+                          borderColor: "#a18cd1", 
+                          boxShadow: "0 5px 15px rgba(161, 140, 209, 0.1)" 
+                        }}
+                      >
+                        <FaBook className="interest-icon" style={{ color: "#a18cd1" }} />
+                        <h4 style={{ color: "#243c4c" }}>Reading</h4>
+                        <p style={{ color: "#4a5963" }}>Science fiction and technical books fill my shelves and my mind.</p>
                       </div>
-                      <div className="interest-item">
-                        <FaMusic className="interest-icon" />
-                        <h4>Music</h4>
-                        <p>My coding sessions are always accompanied by the perfect playlist.</p>
+                      <div 
+                        className="interest-item" 
+                        style={{ 
+                          borderColor: "#a18cd1", 
+                          boxShadow: "0 5px 15px rgba(161, 140, 209, 0.1)" 
+                        }}
+                      >
+                        <FaMusic className="interest-icon" style={{ color: "#a18cd1" }} />
+                        <h4 style={{ color: "#243c4c" }}>Music</h4>
+                        <p style={{ color: "#4a5963" }}>My coding sessions are always accompanied by the perfect playlist.</p>
                       </div>
                     </div>
                   </div>
@@ -330,24 +477,102 @@ function AboutMe() {
                 
                 {activeTab === 'skills' && (
                   <div className="tab-pane fade-in">
-                    <h3>My Toolbox</h3>
+                    <h3 style={{ color: "#ff9a9e" }}>My Toolbox</h3>
                     <div className="skills-showcase">
                       <div className="skill-category">
-                        <h4>Frontend</h4>
-                        <div className="skill-pills">
-                          <span className="skill-pill">React</span>
-                          <span className="skill-pill">JavaScript</span>
-                          <span className="skill-pill">HTML5</span>
-                          <span className="skill-pill">CSS3</span>
-                          <span className="skill-pill">Responsive Design</span>
+                        <h4 style={{ color: "#243c4c", borderBottomColor: "#ff9a9e" }}>Frontend</h4>
+                        <div 
+                          className="skill-pills"
+                          style={responsiveStyles.skillPills}
+                        >
+                          <span 
+                            className="skill-pill" 
+                            style={{ 
+                              backgroundColor: "#ff9a9e", 
+                              color: "#ffffff",
+                              ...responsiveStyles.skillPill
+                            }}
+                          >
+                            React
+                          </span>
+                          <span 
+                            className="skill-pill" 
+                            style={{ 
+                              backgroundColor: "#ff9a9e", 
+                              color: "#ffffff",
+                              ...responsiveStyles.skillPill
+                            }}
+                          >
+                            JavaScript
+                          </span>
+                          <span 
+                            className="skill-pill" 
+                            style={{ 
+                              backgroundColor: "#ff9a9e", 
+                              color: "#ffffff",
+                              ...responsiveStyles.skillPill
+                            }}
+                          >
+                            HTML5
+                          </span>
+                          <span 
+                            className="skill-pill" 
+                            style={{ 
+                              backgroundColor: "#ff9a9e", 
+                              color: "#ffffff",
+                              ...responsiveStyles.skillPill
+                            }}
+                          >
+                            CSS3
+                          </span>
+                          <span 
+                            className="skill-pill" 
+                            style={{ 
+                              backgroundColor: "#ff9a9e", 
+                              color: "#ffffff",
+                              ...responsiveStyles.skillPill
+                            }}
+                          >
+                            Responsive Design
+                          </span>
                         </div>
                       </div>
                       <div className="skill-category">
-                        <h4>Tools & Others</h4>
-                        <div className="skill-pills">
-                          <span className="skill-pill">VS Code</span>
-                          <span className="skill-pill">Adobe PhotoShop</span>
-                          <span className="skill-pill">Git</span>
+                        <h4 style={{ color: "#243c4c", borderBottomColor: "#ff9a9e" }}>Tools & Others</h4>
+                        <div 
+                          className="skill-pills"
+                          style={responsiveStyles.skillPills}
+                        >
+                          <span 
+                            className="skill-pill" 
+                            style={{ 
+                              backgroundColor: "#ff9a9e", 
+                              color: "#ffffff",
+                              ...responsiveStyles.skillPill
+                            }}
+                          >
+                            VS Code
+                          </span>
+                          <span 
+                            className="skill-pill" 
+                            style={{ 
+                              backgroundColor: "#ff9a9e", 
+                              color: "#ffffff",
+                              ...responsiveStyles.skillPill
+                            }}
+                          >
+                            Adobe PhotoShop
+                          </span>
+                          <span 
+                            className="skill-pill" 
+                            style={{ 
+                              backgroundColor: "#ff9a9e", 
+                              color: "#ffffff",
+                              ...responsiveStyles.skillPill
+                            }}
+                          >
+                            Git
+                          </span>
                         </div>
                       </div>
                     </div>

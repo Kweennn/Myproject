@@ -14,8 +14,8 @@ function Certificates() {
       id: 1,
       title: "Data Science",
       image: "Data Science.jpg",
-      issuer: "Coursera",
-      date: "2023",
+      issuer: "Simplilearn",
+      date: "2025",
       description: "Comprehensive data science certification",
       category: "Data Science"
     },
@@ -23,8 +23,8 @@ function Certificates() {
       id: 2,
       title: "App Builder",
       image: "App Builder.jpg",
-      issuer: "Udemy",
-      date: "2023",
+      issuer: "Simplilearn",
+      date: "2025",
       description: "Mobile and web application development",
       category: "Development"
     },
@@ -32,8 +32,8 @@ function Certificates() {
       id: 3,
       title: "Business Analytics",
       image: "Business.jpg",
-      issuer: "LinkedIn Learning",
-      date: "2023",
+      issuer: "Simplilearn",
+      date: "2025",
       description: "Business intelligence and analytics",
       category: "Business"
     },
@@ -41,8 +41,8 @@ function Certificates() {
       id: 4,
       title: "Libraries & Frameworks",
       image: "Libraries.jpg",
-      issuer: "Pluralsight",
-      date: "2023",
+      issuer: "Simplilearn",
+      date: "2025",
       description: "Modern JavaScript libraries and frameworks",
       category: "Development"
     },
@@ -50,8 +50,8 @@ function Certificates() {
       id: 5,
       title: "Development Tools",
       image: "Dev Tools.jpg",
-      issuer: "edX",
-      date: "2023",
+      issuer: "Simplilearn",
+      date: "2025",
       description: "Software development tools and practices",
       category: "Development"
     },
@@ -59,8 +59,8 @@ function Certificates() {
       id: 6,
       title: "Excel Advanced",
       image: "Excel.jpg",
-      issuer: "Microsoft",
-      date: "2023",
+      issuer: "Simplilearn",
+      date: "2025",
       description: "Advanced Excel functions and data analysis",
       category: "Business"
     },
@@ -68,8 +68,8 @@ function Certificates() {
       id: 7,
       title: "Machine Learning",
       image: "Machine Learning.jpg",
-      issuer: "Coursera",
-      date: "2023",
+      issuer: "Simplilearn",
+      date: "2025",
       description: "Machine learning algorithms and applications",
       category: "Data Science"
     },
@@ -77,8 +77,8 @@ function Certificates() {
       id: 8,
       title: "Machine Engineering",
       image: "Machine.jpg",
-      issuer: "Udacity",
-      date: "2023",
+      issuer: "Simplilearn",
+      date: "2025",
       description: "Machine engineering principles and practices",
       category: "Engineering"
     },
@@ -86,8 +86,8 @@ function Certificates() {
       id: 9,
       title: "Power BI",
       image: "Power Bi.jpg",
-      issuer: "Microsoft",
-      date: "2023",
+      issuer: "Simplilearn",
+      date: "2025",
       description: "Data visualization with Power BI",
       category: "Data Science"
     },
@@ -95,8 +95,8 @@ function Certificates() {
       id: 10,
       title: "Python Programming",
       image: "Python.jpg",
-      issuer: "Codecademy",
-      date: "2023",
+      issuer: "Simplilearn",
+      date: "2025",
       description: "Python programming language",
       category: "Development"
     },
@@ -104,8 +104,8 @@ function Certificates() {
       id: 11,
       title: "React Development",
       image: "React.jpg",
-      issuer: "freeCodeCamp",
-      date: "2023",
+      issuer: "Simplilearn",
+      date: "2025",
       description: "React.js front-end development",
       category: "Development"
     },
@@ -113,8 +113,8 @@ function Certificates() {
       id: 12,
       title: "Data Visualization",
       image: "Visualization.jpg",
-      issuer: "DataCamp",
-      date: "2023",
+      issuer: "Simplilearn",
+      date: "2025",
       description: "Advanced data visualization techniques",
       category: "Data Science"
     }
@@ -368,12 +368,25 @@ function Certificates() {
       
       <div className="page-content certificates-page" style={{ position: 'relative', zIndex: 1 }}>
         <div className="certificates-header">
-          <h1>My Certifications</h1>
-          <p>Personal qualifications and achievements.</p>
+        <h1 className="page-title" style={{ 
+  background: "none", 
+  color: "#d89292",
+  WebkitBackgroundClip: "unset" 
+}}>  My Certifications </h1>
         </div>
-        
         <div className="category-filter-section">
-          <h2 className="filter-heading">Browse by Category</h2>
+        <h2 
+  className="filter-heading" 
+  style={{ 
+    color: "#4ecdc4", 
+    margin: "30px 0 20px 0",
+    marginTop: "-40px",
+    fontWeight: "600"
+  }}
+>
+  Browse by Category
+</h2>
+
           <div className="category-tabs">
             {categories.map(category => (
               <div

@@ -301,8 +301,19 @@ function Contact() {
       
       <div className="page-content contact-page" style={{ position: 'relative', zIndex: 1 }}>
         <div className="page-header">
-          <h1 className="page-title">Get In Touch</h1>
-          <p className="page-subtitle">Have a question or want to work together? I'd love to hear from you!</p>
+        <h1 className="page-title" style={{ 
+  background: "none", 
+  color: "#d89292",
+
+  WebkitBackgroundClip: "unset" 
+}}>
+            Get In Touch</h1>
+            <p className="page-subtitle" style={{ 
+  marginTop: '5px', 
+  marginBottom: '25px',
+  color: '#4ecdc4',
+}}>
+            Have a question or want to work together? I'd love to hear from you!</p>
         </div>
 
         <div className="contact-container">

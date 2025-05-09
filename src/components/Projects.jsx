@@ -346,11 +346,22 @@ function Projects() {
       />
       
       <div className="page-content" style={{ position: 'relative', zIndex: 1 }}>
-        <div className="page-header" style={{ marginTop: '-30px', marginBottom: '30px', paddingTop: '0' }}>
-          <h1 className="page-title" style={{ marginTop: '30px',color:'4ecdc4'}}>Featured Projects</h1>
-          <p className="page-subtitle" style={{ marginTop: '5px', marginBottom: '25px' }}>
-            A collection of my work showcasing my skills and experience in web development and design.
-          </p>
+        <div className="page-header" style={{ marginTop: '-50px', marginBottom: '30px', paddingTop: '0' }}>
+        <h1 className="page-title" style={{ 
+  background: "none", 
+  color: "#d89292",
+
+  WebkitBackgroundClip: "unset" 
+}}>
+            Featured Projects</h1>
+            <p className="page-subtitle" style={{ 
+  marginTop: '5px', 
+  marginBottom: '25px',
+  color: '#4ecdc4',
+}}>
+  A collection of my work showcasing my skills and experience in web development and design.
+</p>
+
         </div>
         
         <div className="category-filter-section">
@@ -517,8 +528,8 @@ function Projects() {
           borderRadius: '16px',
           boxShadow: '0 10px 25px rgba(0, 0, 0, 0.1)'
         }}>
-          <h3 style={{ color: '#243c4c', marginBottom: '15px', fontSize: '1.5rem' }}>Want to see more of my work?</h3>
-          <p style={{ color: '#4a5963', marginBottom: '20px' }}>
+          <h3 style={{ color: '#4ecdc4', marginBottom: '15px', fontSize: '1.5rem' }}>Want to see more of my work?</h3>
+          <p style={{ color: '#60a5fa  ', marginBottom: '20px' }}>
             Check out my GitHub profile for additional projects and contributions!
           </p>
           <div style={{ display: 'flex', justifyContent: 'center', gap: '15px', flexWrap: 'wrap' }}>
@@ -527,8 +538,8 @@ function Projects() {
               target="_blank"
               rel="noopener noreferrer"
               style={{
-                background: 'linear-gradient(45deg, #243c4c, #3B82F6)',
-                color: 'white',
+                background:" linear-gradient(45deg, #4ecdc4, #6c5ce7)",
+                color: '#fff',  
                 padding: '12px 25px',
                 borderRadius: '30px',
                 textDecoration: 'none',
