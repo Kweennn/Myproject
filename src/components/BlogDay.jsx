@@ -1,9 +1,10 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import Navbar from './Navbar';
 import Rizal_Monument from '../assets/Rizal_Monument.jpg';
 import Fort_Santiago from '../assets/Fort_Santiago.jpg';
-import Moa from '../assets/Moa.jpg';import rizal2 from '../assets/rizal2.jpg';
+import Moa from '../assets/Moa.jpg';
+import rizal2 from '../assets/rizal2.jpg';
 import gomburza from '../assets/gomburza.jpg';
 import classrizal from '../assets/classrizal.jpg';
 import "../Blog.css";
@@ -94,7 +95,6 @@ import sou from '../assets/sou.jpg';
 import b1 from '../assets/b1.jpg';
 import b2 from '../assets/b2.jpg';
 import b3 from '../assets/b3.jpg';
-
 
 
 
@@ -510,6 +510,30 @@ extraImages: [
   },  
 
 ];
+// Add this with your other useState declarations at the top of the component
+const [showBackToTop, setShowBackToTop] = useState(false);
+
+// Add this function after your other function declarations
+const scrollToTop = () => {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+};
+
+// Add this useEffect to handle showing/hiding the back-to-top button
+useEffect(() => {
+  const handleScroll = () => {
+    if (window.scrollY > 300) {
+      setShowBackToTop(true);
+    } else {
+      setShowBackToTop(false);
+    }
+  };
+
+  window.addEventListener('scroll', handleScroll);
+  return () => window.removeEventListener('scroll', handleScroll);
+}, []);
 
 const selectedDay = blogPosts.find(post => post.id === parseInt(dayId, 10));
 if (!selectedDay) return <p>Sorry, the selected day was not found!</p>;
@@ -725,33 +749,54 @@ return (
 );
 })}
 
-```
-  {/* Image Modal */}
-  {modalOpen && (
-    <div className="image-modal" onClick={closeModal} style={{
-      position: "fixed",
-      top: 0, left: 0,
-      width: "100vw",
-      height: "100vh",
-      backgroundColor: "rgba(0,0,0,0.8)",
-      display: "flex",
-      alignItems: "center",
-      justifyContent: "center",
-      zIndex: 9999,
-      flexDirection: "column"
-    }}>
-      <button onClick={(e) => { e.stopPropagation(); showPrev(); }} className="modal-nav-button prev-button">‹</button>
-      <img
-        src={selectedDay.sections[activeSection].extraImages[currentIndex].src}
-        alt={selectedDay.sections[activeSection].extraImages[currentIndex].alt}
-        className="modal-image"
-        onClick={(e) => e.stopPropagation()}
-      />
-      <button onClick={(e) => { e.stopPropagation(); showNext(); }} className="modal-nav-button next-button">›</button>
-      <button onClick={(e) => { e.stopPropagation(); closeModal(); }} className="modal-close-button">✖</button>
-    </div>
-  )}
+ {/* Image Modal */}
+{modalOpen && (
+  <div className="image-modal" onClick={closeModal} style={{
+    position: "fixed",
+    top: 0, left: 0,
+    width: "100vw",
+    height: "100vh",
+    backgroundColor: "rgba(0,0,0,0.8)",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    zIndex: 9999,
+    flexDirection: "column"
+  }}>
+    <button onClick={(e) => { e.stopPropagation(); showPrev(); }} className="modal-nav-button prev-button">‹</button>
+    <img
+      src={selectedDay.sections[activeSection].extraImages[currentIndex].src}
+      alt={selectedDay.sections[activeSection].extraImages[currentIndex].alt}
+      className="modal-image"
+      onClick={(e) => e.stopPropagation()}
+    />
+    <button onClick={(e) => { e.stopPropagation(); showNext(); }} className="modal-nav-button next-button">›</button>
+    <button onClick={(e) => { e.stopPropagation(); closeModal(); }} className="modal-close-button">✖</button>
+  </div>
+)}
+
+{/* Footer */}
+<div className="blog-footer">
+  <p>© 2025 Queenie Canoy. All rights reserved.</p>
+  <div className="footer-nav">
+    <span onClick={() => navigate("/")}>Home</span>
+    <span onClick={() => navigate("/about")}>About</span>
+    <span onClick={() => navigate("/contact")}>Contact</span>
+  </div>
 </div>
+
+{/* Back to Top Button */}
+{showBackToTop && (
+  <button
+    className="back-to-top"
+    onClick={scrollToTop}
+    aria-label="Back to top"
+  >
+    ↑
+  </button>
+)}
+</div>
+
 );
 }
 

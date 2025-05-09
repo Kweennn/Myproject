@@ -170,13 +170,14 @@ function BlogPost() {
     className="blog-hero-image" 
   />
   
-  <div className="blog-header">
-    <h1 className="blog-title">Industry Visit Education Tour (IVET)</h1>
-    <p className="blog-description">
-      Sharing my journey and experiences from this educational trip, where WMSU IT students
-      explore real-world industry practices and learn valuable insights. Enjoy reading!
-    </p>
-  </div>
+  <div className="blog-header" style={{ marginTop: '50px', paddingTop: '30px' }}>
+  <h1 className="blog-title">Industry Visit Education Tour (IVET)</h1>
+  <p className="blog-description">
+    Sharing my journey and experiences from this educational trip, where WMSU IT students
+    explore real-world industry practices and learn valuable insights. Enjoy reading!
+  </p>
+</div>
+
 
   <div className="scroll-indicator" onClick={scrollToTimeline}>
     <span>Explore the journey</span>
